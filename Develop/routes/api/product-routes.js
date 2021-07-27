@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
       },
     ],
   })
-  .then((CategoryData) => res.json(CategoryData))
+  .then((ProductData) => res.json(ProductData))
     .catch((err) => {
       console.log(err);
     });
@@ -47,8 +47,8 @@ router.get('/:id', (req, res) => {
       },
     ],
   })
-    .then((CategoryData) => {
-      res.json(CategoryData);
+    .then((ProductData) => {
+      res.json(ProductData);
     })
     .catch((err) => {
       console.log(err);
