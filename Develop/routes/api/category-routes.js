@@ -36,13 +36,15 @@ router.get('/:id', (req, res) => {
       },
     ],
   })
-    .then((CategoryData) => {
+    .then((CategoryData) => 
+    {
       //console.log(req)
       //console.log(req.params)
       //console.log(req.params.id)
       res.json(CategoryData);
     })
-    .catch((err) => {
+    .catch((err) => 
+    {
       console.log(err);
     });
 });
@@ -63,13 +65,33 @@ router.post('/', (req, res) => {
   ]
   */
   })
-    .then((CategoryData) => res.json(CategoryData)).catch((err) => {
+    .then((CategoryData) => res.json(CategoryData)).catch((err) => 
+    {
       console.log(err);
     });
 });
 
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
+  Category.update(
+    {
+      category_name: req.body.category_name,
+    },
+    {
+      where: 
+      {
+        id: req.params.id,
+      },
+    }
+  )
+    .then((CategoryData) => 
+    {
+      res.json(CategoryData);
+    })
+    .catch((err) => 
+    {
+      console.log(err);
+    });
 });
 
 router.delete('/:id', (req, res) => {
