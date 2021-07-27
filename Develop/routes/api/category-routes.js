@@ -49,6 +49,23 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new category
+  Category.create({
+    category_name: req.body.category_name
+    /*
+    products: [
+      {
+      "id": req.body.id,
+      "product_name": req.body.product_name,
+      "price": req.body.price,
+      "stock": req.body.stock,
+      "category_id": req.body,
+      }
+  ]
+  */
+  })
+    .then((CategoryData) => res.json(CategoryData)).catch((err) => {
+      console.log(err);
+    });
 });
 
 router.put('/:id', (req, res) => {
